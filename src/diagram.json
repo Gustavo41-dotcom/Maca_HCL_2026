@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "author": "Gustavo_Maca_HCL",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp32", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-hbridge-ibt2", "id": "ibt1", "top": 20, "left": 250, "attrs": {} },
+    { "type": "wokwi-hbridge-ibt2", "id": "ibt2", "top": 150, "left": 250, "attrs": {} },
+    { "type": "wokwi-motor-dc", "id": "motor1", "top": 20, "left": 450, "attrs": { "label": "Motor LE" } },
+    { "type": "wokwi-motor-dc", "id": "motor2", "top": 150, "left": 450, "attrs": { "label": "Motor LD" } }
+  ],
+  "connections": [
+    [ "esp32:GPIO.25", "ibt1:RPWM", "green", [ "h0" ] ],
+    [ "esp32:GPIO.26", "ibt1:LPWM", "blue", [ "h0" ] ],
+    [ "esp32:GPIO.27", "ibt1:R_EN", "orange", [ "h0" ] ],
+    [ "ibt1:M+", "motor1:1", "red", [ "v0" ] ],
+    [ "ibt1:M-", "motor1:2", "black", [ "v0" ] ],
+    [ "esp32:GPIO.14", "ibt2:RPWM", "green", [ "h0" ] ],
+    [ "esp32:GPIO.12", "ibt2:LPWM", "blue", [ "h0" ] ],
+    [ "esp32:GPIO.13", "ibt2:R_EN", "orange", [ "h0" ] ],
+    [ "ibt2:M+", "motor2:1", "red", [ "v0" ] ],
+    [ "ibt2:M-", "motor2:2", "black", [ "v0" ] ]
+  ]
+}
